@@ -2,8 +2,10 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import pageRoutes from "./src/routes/pageRoutes.js";
+import { router } from "./src/routes/pageRoutes.js";
 
+// Define the the application environment
+const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || 'production';
 const app = express();
 
 // Recreate __dirname in ES Modules
@@ -17,7 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "src/public")));
 
-app.use("/", pageRoutes);
 
 app.use((req, res) => {
     res.status(404).send("Page not found");
@@ -26,5 +27,9 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
+    console.log("--------------------------------");
     console.log(`Server running on port ${PORT}`);
+    console.log(`URL: http://127.0.0.1:${PORT}`);
+    console.log(`Environment: ${NODE_ENV}`);
+    console.log("--------------------------------");
 });

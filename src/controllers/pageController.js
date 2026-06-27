@@ -117,4 +117,4 @@ const getHomePage = (req, res) => {
   });
 };
 
-export {getHomePage}
+export { getHomePage }
