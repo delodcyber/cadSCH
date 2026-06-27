@@ -1,4 +1,4 @@
-exports.getHomePage = (req, res) => {
+const getHomePage = (req, res) => {
   const stats = [
     { value: "5,000+", label: "Lives Impacted", icon: "👥" },
     { value: "1,200+", label: "Scholarships Shared", icon: "🎓" },
@@ -116,3 +116,5 @@ exports.getHomePage = (req, res) => {
     partners
   });
 };
+
+export {getHomePage}
