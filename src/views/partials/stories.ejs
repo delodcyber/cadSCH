@@ -1,0 +1,30 @@
+<section class="section-block stories-section">
+  <div class="container">
+    <div class="section-head section-head-row">
+      <div>
+        <p class="section-kicker">REAL STORIES. REAL IMPACT.</p>
+        <h2>Stories from our community</h2>
+      </div>
+      <a class="text-link" href="/stories">Read All Stories</a>
+    </div>
+
+    <div class="story-grid">
+      <% stories.forEach(function(story) { %>
+        <article class="story-card">
+          <div class="story-image">
+            <div class="image-placeholder">
+              <!-- Image link will be added later -->
+            </div>
+          </div>
+
+          <div class="story-content">
+            <h3><%= story.title %></h3>
+            <p class="story-quote">“<%= story.quote %>”</p>
+            <p class="story-author">— <%= story.author %></p>
+            <a href="/stories"><%= story.linkText %> <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </div>
+</section>
